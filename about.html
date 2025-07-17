@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXAM</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+</head>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #333;
+      color: #fff;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      color: #ffd700;
+    }
+
+    .gallery {
+      padding: 50px;
+      text-align: center;
+    }
+
+    .gallery h1 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .image-grid img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+#media {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+#media h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#media h3 {
+  font-size: 20px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+#media audio, #media video {
+  width: 100%;
+  max-width: 640px;
+  display: block;
+  margin-bottom: 30px;
+  border-radius: 4px;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">SHOPPING COMPLEX</div>
+    <ul>
+      <li><a href="index3.html" class="hover:text-yellow-300"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Contact.html" class="hover:text-yellow-300"><i class="fas fa-store"></i> Contact</a></li>
+            <li><a href="about.html" class="hover:text-yellow-300"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="product.html" class="hover:text-yellow-300"><i class="fas fa-store"></i> Products</a></li>
+    </ul>
+  </header>
+
+<section id="media" class="mb-10">
+  <h2 class="text-3xl font-bold mb-4">About US</h2>
+
+  <article class="mb-6">
+    <h3 class="text-xl font-semibold"></h3>
+   <audio controls class="w-full">
+         <!--<source src="" type="audio/mpeg"> couldn't download the audio file--> 
+          Your browser does not support the audio tag.
+        </audio>
+      </article>
+
+  <article>
+    <video controls width="640">
+      <source src="Set1 Video.mp4" type="video/mp4">
+      <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English" default>
+      Your browser does not support the video tag.
+    </video>
+  </article>
+</section>
+
+</body>
+</html>

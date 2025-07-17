@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar ul li a:hover {
+      color: #ffd700;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 100px auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 2px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc2020;
+      color: #ffd700;
+    }
+
+    .message {
+      margin-top: 15px;
+      text-align: center;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Shopping Store</div>
+    <ul>
+      <ul class="flex space-x-4 p-4 bg-gray-800 text-white">
+            <li><a href="index3.html" class="hover:text-yellow-300"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Contact.html" class="hover:text-yellow-300"><i class="fas fa-store"></i> Contact</a></li>
+            <li><a href="about.html" class="hover:text-yellow-300"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="product.html" class="hover:text-yellow-300"><i class="fas fa-store"></i> Products</a></li>
+      </ul>
+  </header>
+
+  <div class="form-container">
+    <h2>Feedback</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Enter Username" required />
+    <label for="Products">Product:</label>
+      <input type="email" id="username" placeholder="Enter Username" required />
+      <label class="icon-label"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required />
+      <input type="email" id="email" name="email" placeholder="Email" required/>
+
+          
+      <button type="submit">Submit</button><br>
+      <button type="reset">Clear</button>
+      <div class="message" id="message"></div>
+    </form>
+  </div>
+
+    <section class="mt-10 mb-10">
+      <h2 class="text-3xl font-bold mb-4">Your Location</h2>
+      <button onclick="getLocation()" class="bg-green-500 text-white px-4 py-2 rounded">Get Location</button>
+      <p id="locationDisplay" class="mt-2"></p>
+    </section>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alert("Please fill out all fields!");
+        return;
+      }
+
+      localStorage.setItem("contactName", name);
+      sessionStorage.setItem("contactEmail", email);
+      alert("Welcome back,! You were interested in product.");
+      this.reset();
+    });
+
+  </script>
+  <script>
+  function getLocation() {
+      const display = document.getElementById("locationDisplay");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            display.innerText = `Latitude: ${latitude}, Longitude: ${longitude}`;
+          },
+          () => display.innerText = "Geolocation access denied."
+        );
+      } else {
+        display.innerText = "Geolocation is not supported by your browser.";
+      }
+    }
+  </script>
+
+
+</body>
+</html>

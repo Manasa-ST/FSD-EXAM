@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head><title>
+        Product Page
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+</head>
+<style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .navbar ul li a:hover {
+      color: #ffd700;
+    }
+
+    .form-container {
+      max-width: 400px;
+      margin: 100px auto;
+      background: white;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+ button, input, select {
+      margin: 10px 5px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    #urban-container div {
+      background: white;
+      margin: 10px 0;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .container p{
+      max-width: 1800px;
+      margin: 10 auto;
+      padding: 10px;
+    }
+</style>
+<body>
+    </head>
+<body>
+  <header class="navbar">
+    <div class="logo">Shopping Centre</div>
+    <nav>
+    <ul>
+     <ul class="flex space-x-4 p-4 bg-gray-800 text-white">
+            <li><a href="index3.html" class="hover:text-yellow-300"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="about.html" class="hover:text-yellow-300"><i class="fas fa-info-circle"></i> About</a></li>
+            <li><a href="product.html" class="hover:text-yellow-300"><i class="fas fa-store"></i> Products</a></li>
+            <li><a href="Contact.html" class="hover:text-yellow-300"><i class="fas fa-store"></i> Contact</a></li>
+      </ul>
+      </nav>
+  </header>
+
+
+  <div class="main-content">
+    
+  
+    <div class="controls" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem;">
+      <button id="fetchbooks"><i class="fa-solid fa-download"></i> Fetch Products</button>
+      <input type="text" placeholder="Search book name" id="search">
+      <select id="sorting">
+        <option value="asc">Name Ascending</option>
+        <option value="desc">Name Descending</option>
+      </select>
+    </div>
+
+    <div id="books-container"></div>
+    <div id="pagination-container"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="container text-center">
+      <p style="background-color: rgb(97, 100, 100);text-align: center;color: #f5f5f5;">&copy;All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    const booksContainer = document.getElementById('books-container');
+    const fetchBtn = document.getElementById('fetchbooks');
+    const searchInput = document.getElementById('search');
+    const sortingSelect = document.getElementById('sorting');
+
+    let books = [];
+
+    async function fetchBooks() {
+      const res = await fetch('https://fakestoreapi.com/products');
+      const data = await res.json();
+      books = data.works.map(work => ({
+        title: work.title,
+        author: work.authors && work.authors[0] ? work.authors[0].name : 'Unknown'
+      }));
+      renderBooks();
+    }
+
+  </script>
+</body>
+</html>
+
+</body>
+</html>
+
